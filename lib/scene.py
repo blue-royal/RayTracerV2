@@ -32,7 +32,7 @@ class Scene:
         image.show()
         
     def load_hdri(self):
-        self.hdri = Image.open("Textures\HdrOutdoorCityPathDayClear001_JPG_4K.jpg")
+        self.hdri = Image.open("Textures/HdrOutdoorCityPathDayClear001_JPG_4K.jpg")
         
         self.length, self.height = self.hdri.size
     
