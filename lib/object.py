@@ -1,20 +1,24 @@
 from math import sqrt
+from lib.material import Material
 from lib.settings import *
 
 class Light():
-    def __init__ (self, pos): # , intensity):
+    def __init__ (self, pos, colour): # , intensity):
         self.pos = pos
+        self.colour = colour
         # self.intensity = intensity
 
 class Entity:
-    def __init__(self, material):
+    def __init__(self, material, pos):
         self.material = material
+        self.pos = pos
 
 class Sphere(Entity):
-    def __init__(self, material, pos, radius):
-        super().__init__(material)
-        self.pos = pos
+    def __init__(self, colour, pos, radius):
+        material = Material(colour, self)
+        super().__init__(material, pos)
         self.radius = radius
+
     def collision_dist(self, ray):
         # forms a quadratic in the form ax**2 + bx + c
         b = 2 * (ray.dir.dot(ray.pos - self.pos))
@@ -29,4 +33,6 @@ class Sphere(Entity):
                 return larger
         return INFINITY
 
+    def get_normal(self, pos):
+        return (pos - self.pos).normalise()
 

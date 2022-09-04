@@ -17,11 +17,15 @@ class Render:
         name = image_name
         if name == str(Render.default_name):
             Render.default_name += 1
-        self.save_path = f"images\\{name}.png"
+        self.save_path = f"images/{name}.png"
     
     def get_ray(self, i, j):
-        dx = (1 - (2*j/WIDTH)) * tan((FOV/360) * pi) * ASPECT_RATIO
-        dy = (1 - (2*i/HEIGHT)) * tan((FOV/360) * pi)
+        if WIDTH > HEIGHT:
+            dx = (1 - (2*j/WIDTH)) * tan((FOV/360) * pi) * ASPECT_RATIO
+            dy = (1 - (2*i/HEIGHT)) * tan((FOV/360) * pi)
+        else:
+            dx = (1 - (2*j/WIDTH)) * tan((FOV/360) * pi) 
+            dy = (1 - (2*i/HEIGHT)) * tan((FOV/360) * pi) * ASPECT_RATIO
         return Ray(ORIGIN, Vec3(dx, dy, 1))
 
     def update_grid(self, i, j, colour):
