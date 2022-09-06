@@ -7,7 +7,7 @@ from lib.material import *
 class Scene:
     def __init__(self):
         self.objects = [Sphere(MELON, Vec3(0, 0.5, 3), 0.4), Sphere(MELON, Vec3(1, -0.5, 3), 0.6), Sphere(DEEP_BLUE, Vec3(-0.8, 00, 8), 1), Sphere(DEEP_BLUE, Vec3(0.9, 0.9, 1), 0.2)]
-        self.lights = [Light(Vec3(1, 0, -1), Colour(255, 255, 255))]     
+        self.lights = [Light(Vec3(1, 0, -1), Colour(255, 255, 255)), Light(Vec3(-1, 0, 3), Colour(255, 0, 0))]     
         
         image = Render("tester")
            

@@ -38,3 +38,11 @@ class Colour(Vec3):
 
     def __str__(self):
         return (self.x, self.y, self.z)
+    
+    @staticmethod
+    def max(colours):
+        r = max([colour.x for colour in colours])
+        g = max([colour.y for colour in colours])
+        b = max([colour.z for colour in colours])
+        return Colour(r, g, b)
+            
