@@ -45,4 +45,14 @@ class Colour(Vec3):
         g = max([colour.y for colour in colours])
         b = max([colour.z for colour in colours])
         return Colour(r, g, b)
-            
+    
+    @staticmethod
+    def average(colours):
+        r = [colour.x for colour in colours]
+        g = [colour.y for colour in colours]
+        b = [colour.z for colour in colours]
+        r = sum(r) / len(r)
+        g = sum(g) / len(g)
+        b = sum(b) / len(b)
+        return Colour(r, g, b)
+        
