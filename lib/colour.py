@@ -47,12 +47,17 @@ class Colour(Vec3):
         return Colour(r, g, b)
     
     @staticmethod
-    def average(colours):
-        r = [colour.x for colour in colours]
-        g = [colour.y for colour in colours]
-        b = [colour.z for colour in colours]
-        r = sum(r) / len(r)
-        g = sum(g) / len(g)
-        b = sum(b) / len(b)
+    def average(colours, weights):
+        r = []
+        g = []
+        b = []
+        for i, colour in enumerate(colours):
+            if weights[i] != 0:
+                r.append(colour.x * weights[i])
+                g.append(colour.y * weights[i])
+                b.append(colour.z * weights[i])
+
+        r = sum(r) / (len(r)*sum(weights))
+        g = sum(g) / (len(g)*sum(weights))
+        b = sum(b) / (len(b)*sum(weights))
         return Colour(r, g, b)
-        

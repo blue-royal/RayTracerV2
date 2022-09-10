@@ -24,13 +24,22 @@ class Vec3():
         return Vec3((self.y*other.z)-(self.z*other.y), (self.z*other.x)-(self.x*other.z), (self.x*other.y)-(self.y*other.z))
     
     def __add__(self, other):
-        return Vec3(self.x + other.x, self.y + other.y, self.z + other.z)
+        if type(other) == Vec3:
+            return Vec3(self.x + other.x, self.y + other.y, self.z + other.z)
+        else:
+            return Vec3(self.x + other, self.y + other, self.z + other)
     
     def __iadd__(self, other):
-        self.x += other.x
-        self.y += other.y
-        self.z += other.z
-        return self
+        if type(other) == Vec3:
+            self.x += other.x
+            self.y += other.y
+            self.z += other.z
+            return self
+        else:
+            self.x += other
+            self.y += other
+            self.z += other
+            return self
     
     def __sub__(self, other):
         return Vec3(self.x - other.x, self.y - other.y, self.z - other.z)

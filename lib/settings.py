@@ -10,6 +10,7 @@ DEEP_BLUE = Colour(0, 102, 153)
 MELON = Colour(247, 152, 98)
 BLACK = Colour(0, 0, 0)
 WHITE = Colour(255, 255, 255)
+GREEN = Colour(50, 250, 50)
 
 # cooridinates
 ORIGIN = Vec3(0, 0, 0)
