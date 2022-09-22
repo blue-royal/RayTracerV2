@@ -14,8 +14,8 @@ class Entity:
         self.pos = pos
 
 class Sphere(Entity):
-    def __init__(self, colour, pos, radius):
-        material = Material(colour, self)
+    def __init__(self, colour, pos, radius, is_translucent=0, refraction_index=1):
+        material = Material(colour, self, is_translucent, refraction_index)
         super().__init__(material, pos)
         self.radius = radius
 
